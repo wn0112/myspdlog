@@ -47,12 +47,12 @@ void SpdlogWrapper::init()
     m_logName = "__log__" + std::to_string(SpdlogWrapper::Id++);
     if (m_async) {
         m_tp = std::make_shared<spdlog::details::thread_pool>(m_queueSize, 1U);
-        m_sink = std::make_shared<spdlog::sinks::rotating_file_sink_mt>(m_fileName, m_fileSize * 1024 * 1024, m_fileCount);
+        m_sink = std::make_shared<spdlog::sinks::rotating_file_sink_mt>(m_fileName, m_fileSize * 1024 * 1024, m_fileCount, spdlog::rotate_file_mode::asc);
         m_spdLogger = std::make_shared<spdlog::async_logger>(m_logName, m_sink, m_tp, spdlog::async_overflow_policy::block);
         spdlog::register_logger(m_spdLogger);
     }
     else 
-        m_spdLogger = spdlog::rotating_logger_mt(m_logName, m_fileName, (size_t)m_fileSize * 1024 * 1024, m_fileCount);
+        m_spdLogger = spdlog::rotating_logger_mt(m_logName, m_fileName, (size_t)m_fileSize * 1024 * 1024, m_fileCount, spdlog::rotate_file_mode::asc);
 
     m_spdLogger->set_pattern(m_fmt);
     m_spdLogger->set_level((spdlog::level::level_enum)m_logLevel);

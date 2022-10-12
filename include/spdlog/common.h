@@ -271,6 +271,15 @@ enum class pattern_time_type
 };
 
 //
+// rotate file mode used by rotate sink
+//
+enum class rotate_file_mode
+{
+    desc,
+    asc,
+};
+
+//
 // Log exception
 //
 class SPDLOG_API spdlog_ex : public std::exception

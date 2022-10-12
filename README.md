@@ -11,6 +11,21 @@ Wrapped DLL base on spdlog-1.10.0
 * `已封装, 你的项目不用再包含 spdlog 头文件`
 * VS2019 
 
+# rotate file mode
+* asc - `new`
+```log
+log.1.txt -> delete
+log.2.txt -> log.1.txt
+log.3.txt -> log.2.txt
+log.txt -> log.3.txt
+```
+* desc
+```log
+log.txt -> log.1.txt
+log.1.txt -> log.2.txt
+log.2.txt -> log.3.txt
+log.3.txt -> delete
+```
 # Example
 
 

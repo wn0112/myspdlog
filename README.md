@@ -6,7 +6,7 @@ Wrapped DLL base on spdlog-1.10.0
 * Sync/Async logger with rotate file sink.
 * `同步/异步模式，滚动日志`
 * spdlog source code updated: rotate file mode supprting - asc|desc 
-* spdlog 源码更改：滚动日志文件支持设置按升序或降序生成
+* `spdlog 源码更改：滚动日志文件支持设置按升序或降序生成`
 * spdlog header files are not needed in your project.
 * `已封装, 你的项目不用再包含 spdlog 头文件`
 * VS2019 

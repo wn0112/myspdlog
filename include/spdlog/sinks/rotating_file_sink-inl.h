@@ -176,8 +176,10 @@ SPDLOG_INLINE void rotating_file_sink<Mutex>::rotate_asc_()
             next_index = max_files_;
         }
     }
-    target = calc_filename(base_filename_, next_index);
-    rename_file_(base_filename_, target);
+    if (max_files_ > 1) {
+        target = calc_filename(base_filename_, next_index);
+        rename_file_(base_filename_, target);
+    }
     file_helper_.reopen(true);
 }
 
